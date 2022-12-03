@@ -12,6 +12,8 @@ Then run
 
 to generate a new project template.
 
+Of course you should explore around the project structure, but the best place to start with your application code is in `src/app/mod.rs`.
+
 ## Installing Additional Tools
 
 By default, `cargo-leptos` uses `nightly` Rust, `cargo-generate`, and `sass`. If you run into any trouble, you may need to install one or more of these tools.
