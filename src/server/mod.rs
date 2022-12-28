@@ -57,10 +57,10 @@ async fn render_app(req: HttpRequest) -> impl Responder {
             .chain(render_to_stream(move |cx| {
                 use_context::<MetaContext>(cx)
                     .map(|meta| meta.dehydrate())
-                    .unwrap_or_default()
+                    .unwrap_or_default().into_view(cx)
             }))
             .chain(futures::stream::once(async { HTML_MIDDLE.to_string() }))
-            .chain(render_to_stream(move |cx| app(cx).to_string()))
+            .chain(render_to_stream(move |cx| app(cx).into_view(cx)))
             .chain(futures::stream::once(async { HTML_END.to_string() }))
             .map(|html| Ok(web::Bytes::from(html)) as Result<web::Bytes>),
     )
