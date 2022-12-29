@@ -1,6 +1,10 @@
 # Leptos Starter Template
 
+**NOTE:** The starter template is currently being updated. It may be broken.
+
 This is a template for use with the [Leptos](https://github.com/gbj/leptos) web framework and the [cargo-leptos](https://github.com/akesson/cargo-leptos) tool.
+
+## Creating your template repo
 
 If you don't have `cargo-leptos` installed you can install it with
 
@@ -12,7 +16,15 @@ Then run
 
 to generate a new project template.
 
+`cd {projectname}`
+
+to go to your newly created project.
+
 Of course you should explore around the project structure, but the best place to start with your application code is in `src/app/mod.rs`.
+
+## Running your project
+
+`cargo leptos watch`
 
 ## Installing Additional Tools
 
