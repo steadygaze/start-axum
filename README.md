@@ -1,5 +1,7 @@
 # Leptos Starter Template
 
+**NOTE:** The starter template is currently being updated. It may be broken.
+
 This is a template for use with the [Leptos](https://github.com/gbj/leptos) web framework and the [cargo-leptos](https://github.com/akesson/cargo-leptos) tool.
 
 If you don't have `cargo-leptos` installed you can install it with
