@@ -12,6 +12,7 @@ crate-type = ["cdylib", "rlib"]
 leptos = { version = "0.1.0-alpha", default-features = false, features = [
   "serde",
 ] }
+leptos_actix = { version = "0.1.0-alpha", optional = true }
 leptos_meta = { version = "0.1.0-alpha", default-features = false }
 leptos_router = { version = "0.1.0-alpha", default-features = false }
 
