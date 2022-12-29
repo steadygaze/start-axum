@@ -9,12 +9,12 @@ edition = "2021"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]
-leptos = { version = "0.1.0-alpha", default-features = false, features = [
+leptos = { version = "0.0.22", default-features = false, features = [
   "serde",
 ] }
-leptos_actix = { version = "0.1.0-alpha", optional = true }
-leptos_meta = { version = "0.1.0-alpha", default-features = false }
-leptos_router = { version = "0.1.0-alpha", default-features = false }
+leptos_actix = { version = "0.0.4", optional = true }
+leptos_meta = { version = "0.0.7", default-features = false }
+leptos_router = { version = "0.0.8", default-features = false }
 
 gloo-net = { version = "0.2", features = ["http"] }
 log = "0.4"
