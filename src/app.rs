@@ -4,8 +4,7 @@ use leptos_meta::*;
 #[component]
 pub fn App(cx: Scope) -> Element {
     // Provides context that manages stylesheets, titles, meta tags, etc.
-    // TODO: this doesn't exist in 0.1.0-alpha -- wait for the next/beta release and uncomment!
-    // provide_meta_context(cx);
+    provide_context(cx, MetaContext::default());
 
     // Creates a reactive value to update the button
     let (count, set_count) = create_signal(cx, 0);
