@@ -17,7 +17,7 @@ pub async fn run() -> std::io::Result<()> {
 
     simple_logger::init_with_level(log::Level::Debug).expect("couldn't initialize logging");
 
-    log::info!("serving at {addr}");
+    log::info!("serving at http://{addr}");
 
     let site_root = std::env::var("LEPTOS_SITE_ROOT").unwrap();
     let pkg_dir = std::env::var("LEPTOS_SITE_PKG_DIR").unwrap();
