@@ -10,7 +10,7 @@ If you don't have `cargo-leptos` installed you can install it with
 
 Then run
 
-`cargo leptos new --git https://github.com/leptos-rs/start`
+`cargo leptos new --git leptos-rs/start`
 
 to generate a new project template.
 
