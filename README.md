@@ -1,6 +1,6 @@
 # Leptos Starter Template
 
-This is a template for use with the [Leptos](https://github.com/gbj/leptos) web framework and the [cargo-leptos](https://github.com/akesson/cargo-leptos) tool.
+This is a template for use with the [Leptos](https://github.com/leptos-rs/leptos) web framework and the [cargo-leptos](https://github.com/akesson/cargo-leptos) tool.
 
 ## Creating your template repo
 
@@ -27,7 +27,6 @@ Of course you should explore around the project structure, but the best place to
 ## Installing Additional Tools
 
 By default, `cargo-leptos` uses `nightly` Rust, `cargo-generate`, and `sass`. If you run into any trouble, you may need to install one or more of these tools.
-
 
 1. `rustup toolchain install nightly --allow-downgrade` - make sure you have Rust nightly
 2. `rustup default nightly` - setup nightly as default, or you can use rust-toolchain file later on
