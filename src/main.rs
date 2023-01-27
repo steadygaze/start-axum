@@ -18,7 +18,7 @@ cfg_if::cfg_if! { if #[cfg(feature = "ssr")] {
 async fn main() {
     simple_logger::init_with_level(log::Level::Debug).expect("couldn't initialize logging");
 
-    // Setting get_configuration(None) means we'll be using cargo-leptos and its env vars
+    // Setting get_configuration(None) means we'll be using cargo-leptos
     let conf = get_configuration(None).await.unwrap();
     let leptos_options = conf.leptos_options;
     let addr = leptos_options.site_address.clone();
