@@ -15,7 +15,7 @@ If you don't have `cargo-leptos` installed you can install it with
 
 Then run
 
-`cargo leptos new --git indrazar/start-axum`
+`cargo leptos new --git leptos-rs/start-axum`
 
 to generate a new project template.
 
@@ -38,3 +38,7 @@ By default, `cargo-leptos` uses `nightly` Rust, `cargo-generate`, and `sass`. If
 3. `rustup target add wasm32-unknown-unknown` - add the ability to compile Rust to WebAssembly
 4. `cargo install cargo-generate` - install `cargo-generate` binary (should be installed automatically in future)
 5. `npm install -g sass` - install `dart-sass` (should be optional in future
+
+## Testing Your Project
+
+`cargo leptos end-to-end`

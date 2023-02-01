@@ -11,38 +11,34 @@ cfg_if! { if #[cfg(feature = "ssr")] {
     use tower::ServiceExt;
     use tower_http::services::ServeDir;
     use std::sync::Arc;
-    use leptos::LeptosOptions;
-    use crate::error_template::error_template;
+    use leptos::*;
+    use crate::error_template::{ErrorTemplate, ErrorTemplateProps};
+    use crate::error_template::AppError;
 
     pub async fn file_and_error_handler(uri: Uri, Extension(options): Extension<Arc<LeptosOptions>>, req: Request<Body>) -> AxumResponse {
         let options = &*options;
         let root = options.site_root.clone();
-        match get_static_file(uri.clone(), &root).await {
-            Ok(res) => {
-                if res.status() == StatusCode::OK {
-                    res.into_response()
-                } else {
-                    let handler = leptos_axum::render_app_to_stream(options.to_owned(), |cx| error_template(cx, None));
-                    handler(req).await.into_response()
-                }
-            },
-            Err(_) => {
-                let handler = leptos_axum::render_app_to_stream(options.to_owned(), |cx| error_template(cx, None));
-                handler(req).await.into_response()
-            },
+        let res = get_static_file(uri.clone(), &root).await.unwrap();
+
+        if res.status() == StatusCode::OK {
+           res.into_response()
+        } else {
+            let mut errors = Errors::default();
+            errors.insert_with_default_key(AppError::NotFound);
+            let handler = leptos_axum::render_app_to_stream(options.to_owned(), move |cx| view!{cx, <ErrorTemplate outside_errors=errors.clone()/>});
+            handler(req).await.into_response()
         }
     }
 
     async fn get_static_file(uri: Uri, root: &str) -> Result<Response<BoxBody>, (StatusCode, String)> {
         let req = Request::builder().uri(uri.clone()).body(Body::empty()).unwrap();
-        let root_path = format!("{root}");
         // `ServeDir` implements `tower::Service` so we can call it with `tower::ServiceExt::oneshot`
         // This path is relative to the cargo root
-        match ServeDir::new(&root_path).oneshot(req).await {
+        match ServeDir::new(root).oneshot(req).await {
             Ok(res) => Ok(res.map(boxed)),
             Err(err) => Err((
                 StatusCode::INTERNAL_SERVER_ERROR,
-                format!("Something went wrong: {}", err),
+                format!("Something went wrong: {err}"),
             )),
         }
     }
