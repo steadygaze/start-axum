@@ -75,7 +75,7 @@ Copy these files to your remote server. The directory structure should be:
 start-axum
 site/
 ```
-Set the following enviornment variables (updating for your project as needed):
+Set the following environment variables (updating for your project as needed):
 ```text
 LEPTOS_OUTPUT_NAME="start-axum"
 LEPTOS_SITE_ROOT="site"
