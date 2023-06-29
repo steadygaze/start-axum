@@ -21,7 +21,7 @@ cfg_if! { if #[cfg(feature = "ssr")] {
         let res = get_static_file(uri.clone(), &root).await.unwrap();
 
         if res.status() == StatusCode::OK {
-           res.into_response()
+            res.into_response()
         } else {
             let mut errors = Errors::default();
             errors.insert_with_default_key(AppError::NotFound);
