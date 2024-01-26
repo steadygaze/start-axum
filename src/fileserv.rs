@@ -1,5 +1,5 @@
 use axum::{
-    body::{boxed, Body, BoxBody},
+    body::Body,
     extract::State,
     response::IntoResponse,
     http::{Request, Response, StatusCode, Uri},
