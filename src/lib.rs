@@ -4,7 +4,7 @@ pub mod error_template;
 pub mod fileserv;
 
 #[cfg(feature = "hydrate")]
-#[wasm_binden::prelude::wasm_bindgen]
+#[wasm_bindgen::prelude::wasm_bindgen]
 pub fn hydrate() {
     use crate::app::*;
     use leptos::*;
