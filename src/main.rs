@@ -1,7 +1,7 @@
 #[cfg(feature = "ssr")]
 #[tokio::main]
 async fn main() {
-    use axum::{routing::post, Router};
+    use axum::Router;
     use leptos::*;
     use leptos_axum::{generate_route_list, LeptosRoutes};
     use {{crate_name}}::app::*;
